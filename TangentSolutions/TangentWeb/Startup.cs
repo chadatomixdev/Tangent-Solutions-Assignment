@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace TangentWeb
 {
@@ -16,6 +19,21 @@ namespace TangentWeb
 
         public void ConfigureServices(IServiceCollection services)
         {
+        //    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        //     .AddJwtBearer(jwtBearerOptions =>
+        //{
+        //    jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters()
+        //    {
+        //        ValidateActor = true,
+        //        ValidateAudience = true,
+        //        ValidateLifetime = true,
+        //        ValidateIssuerSigningKey = true,
+        //        ValidIssuer = Configuration["Issuer"],
+        //        ValidAudience = Configuration["Audience"],
+        //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SigningKey"]))
+        //    };
+        //});
+
             services.AddMvc();
         }
 
@@ -32,12 +50,13 @@ namespace TangentWeb
             }
 
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }
