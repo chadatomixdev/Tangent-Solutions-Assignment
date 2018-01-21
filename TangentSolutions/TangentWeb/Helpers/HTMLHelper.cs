@@ -1,32 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using static System.String;
 
 namespace TangentWeb.Helpers
 {
-    public static class HTMLHelper
+    public static class HtmlHelper
     {
-        //public static string IsSelected(this HtmlHelper html, string controller = null, string action = null)
-        //{
-        //    string cssClass = "active open";
-        //    string currentAction = (string)html.ViewContext.RouteData.Values["action"];
-        //    string currentController = (string)html.ViewContext.RouteData.Values["controller"];
+        public static string IsSelected(this Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper html, string controller = null, string action = null)
+        {
+            var cssClass = "active open";
+            var currentAction = (string)html.ViewContext.RouteData.Values["action"];
+            var currentController = (string)html.ViewContext.RouteData.Values["controller"];
 
-        //    if (String.IsNullOrEmpty(controller))
-        //        controller = currentController;
+            if (IsNullOrEmpty(controller))
+                controller = currentController;
 
-        //    if (String.IsNullOrEmpty(action))
-        //        action = currentAction;
+            if (IsNullOrEmpty(action))
+                action = currentAction;
 
-        //    return controller == currentController && action == currentAction ?
-        //        cssClass : String.Empty;
-        //}
+            return controller == currentController && action == currentAction ?
+                cssClass : Empty;
+        }
 
-        //public static string PageClass(this HtmlHelper html)
-        //{
-        //    string currentAction = (string)html.ViewContext.RouteData.Values["action"];
-        //    return currentAction;
-        //}
+        public static string PageClass(this Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper html)
+        {
+            var currentAction = (string)html.ViewContext.RouteData.Values["action"];
+            return currentAction;
+        }
     }
 }

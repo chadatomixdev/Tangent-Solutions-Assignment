@@ -45,7 +45,9 @@
                         </div>
                         <div class="panel-body">
                             <p> Login to access your account.</p>
-                            <form class="form-horizontal" role="form" asp-controller="Account" asp-action="Login" method="POST">
+                            @*<form class="form-horizontal" asp-controller="Account" asp-action="Authenticate" method="POST">*@
+                            <form class="form-horizontal" method="POST">
+
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <input class="form-control" asp-for="Username" id="email" placeholder="Email">
@@ -63,9 +65,10 @@
                                         <button type="submit" class="btn btn-primary btn-block">Sign in</button>
                                         <hr />
                                     </div>
+                                    <div asp-validation-summary="All"></div>
                                 </div>
                             </form>
-                        
+
                         </div>
                     </div>
                 </div>

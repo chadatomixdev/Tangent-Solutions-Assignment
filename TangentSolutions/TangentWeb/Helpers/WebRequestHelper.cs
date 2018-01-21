@@ -28,25 +28,5 @@ namespace TangentWeb.Helpers
 
             return await httpClient.PostAsync(httpClient.BaseAddress, encodedContent); ;
         }
-
-        //public static async Task<string> MakeAsyncRequest(string url)
-        //{
-        //    var httpClient = new HttpClient { Timeout = new TimeSpan(0, 5, 0) };
-        //    var contentsTask = httpClient.GetStringAsync(url);
-
-        //    var contents = await contentsTask;
-
-        //    return contents;
-        //}
-
-        //public static async Task<string> MakeAsyncRequest(string url, string token)
-        //{
-        //    var httpClient = new HttpClient { Timeout = new TimeSpan(0, 5, 0) };
-        //    var contentsTask = httpClient.GetStringAsync(url);
-
-        //    var contents = await contentsTask;
-
-        //    return contents;
-        //}
     }
 }

@@ -19,26 +19,14 @@ namespace TangentWeb
 
         public void ConfigureServices(IServiceCollection services)
         {
-        //    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        //     .AddJwtBearer(jwtBearerOptions =>
-        //{
-        //    jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters()
-        //    {
-        //        ValidateActor = true,
-        //        ValidateAudience = true,
-        //        ValidateLifetime = true,
-        //        ValidateIssuerSigningKey = true,
-        //        ValidIssuer = Configuration["Issuer"],
-        //        ValidAudience = Configuration["Audience"],
-        //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SigningKey"]))
-        //    };
-        //});
-
+            services.AddSession();
             services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseSession();
+
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
