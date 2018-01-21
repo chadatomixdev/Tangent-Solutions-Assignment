@@ -1,10 +1,11 @@
-﻿using static System.String;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using static System.String;
 
 namespace TangentWeb.Helpers
 {
     public static class HtmlHelper
     {
-        public static string IsSelected(this Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper html, string controller = null, string action = null)
+        public static string IsSelected(this IHtmlHelper html, string controller = null, string action = null)
         {
             var cssClass = "active open";
             var currentAction = (string)html.ViewContext.RouteData.Values["action"];
@@ -20,7 +21,7 @@ namespace TangentWeb.Helpers
                 cssClass : Empty;
         }
 
-        public static string PageClass(this Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper html)
+        public static string PageClass(this IHtmlHelper html)
         {
             var currentAction = (string)html.ViewContext.RouteData.Values["action"];
             return currentAction;

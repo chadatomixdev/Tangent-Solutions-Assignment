@@ -9,11 +9,9 @@ namespace TangentWeb.Controllers
             return helper.RouteUrl(new { @controller = "Dashboard", @action = "Index" });
         }
 
-        public static string PopulateCostperYearChart(this IUrlHelper helper)
+        public static string PopulateEmployeesTable(this IUrlHelper helper)
         {
-            return helper.RouteUrl(new { @controller = "Account", @action = "Login" });
+            return helper.RouteUrl(new { @controller = "Employees", @action = "PopulateEmployeesTable" });
         }
-
-
     }
 }
